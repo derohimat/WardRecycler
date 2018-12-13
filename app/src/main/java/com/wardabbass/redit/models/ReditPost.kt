@@ -4,8 +4,9 @@ import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
-const val DEFAULT_THUMB="default"
- class ReditPost(
+const val DEFAULT_THUMB = "default"
+
+class ReditPost(
         @SerializedName("title") val title: String = "",
         @SerializedName("subreddit_name_prefixed") val subredditNamePrefixed: String = "",
         @SerializedName("thumbnail_height") val thumbnailHeight: Int = -1,
@@ -28,8 +29,7 @@ const val DEFAULT_THUMB="default"
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
-            parcel.readInt()) {
-    }
+            parcel.readInt())
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(title)
@@ -48,22 +48,22 @@ const val DEFAULT_THUMB="default"
         return 0
     }
 
-     override fun equals(other: Any?): Boolean {
-         if (this === other) return true
-         if (javaClass != other?.javaClass) return false
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
 
-         other as ReditPost
+        other as ReditPost
 
-         if (id != other.id) return false
+        if (id != other.id) return false
 
-         return true
-     }
+        return true
+    }
 
-     override fun hashCode(): Int {
-         return id.hashCode()
-     }
+    override fun hashCode(): Int {
+        return id.hashCode()
+    }
 
-     companion object CREATOR : Parcelable.Creator<ReditPost> {
+    companion object CREATOR : Parcelable.Creator<ReditPost> {
         override fun createFromParcel(parcel: Parcel): ReditPost {
             return ReditPost(parcel)
         }

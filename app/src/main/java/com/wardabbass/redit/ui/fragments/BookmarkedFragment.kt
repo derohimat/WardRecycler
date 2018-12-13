@@ -1,14 +1,12 @@
 package com.wardabbass.redit.ui.fragments
 
-
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProviders
 import com.ward.wrecycler.WardRecycler
-
 import com.wardabbass.redit.R
 import com.wardabbass.redit.models.ReditPost
 import com.wardabbass.redit.ui.adapter.RedditPostsAdapter
@@ -19,12 +17,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-
 class BookmarkedFragment : FilteredFragment() {
 
     companion object {
         const val TAG = "BookmarkedFragment"
     }
+
     val compositeDisposable = CompositeDisposable()
 
     private lateinit var wardRecycler: WardRecycler
@@ -64,7 +62,7 @@ class BookmarkedFragment : FilteredFragment() {
 
     override fun onQueryChanged() {
         if (query.isNotBlank()) {
-            compositeDisposable.add(  Observable.fromIterable(bookmarkedViewModel.bookMarkedRedditPosts)
+            compositeDisposable.add(Observable.fromIterable(bookmarkedViewModel.bookMarkedRedditPosts)
                     .subscribeOn(Schedulers.computation())
                     .filter { filter.check(it) }
                     .toList()
@@ -79,7 +77,6 @@ class BookmarkedFragment : FilteredFragment() {
         Log.d(TAG, "onQueryChanged : $query ${context == null}")
 
     }
-
 
 
     fun isBookmarked(id: String) = bookmarkedViewModel.alreadyBookmarked(id)

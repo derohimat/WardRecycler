@@ -1,8 +1,8 @@
 package com.wardabbass.redit.common.ui
 
 import android.content.Context
-import android.support.v4.widget.SwipeRefreshLayout
 import android.util.AttributeSet
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 
 /**
  * custom refresh layout which will call custom callback

@@ -3,24 +3,15 @@ package com.wardabbass.redit.ui.fragments
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.Color
-import android.graphics.PorterDuff
-import android.graphics.drawable.Drawable
-import android.os.Build
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v4.graphics.drawable.DrawableCompat
-import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.widget.Toolbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
-import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.ToggleButton
+import androidx.appcompat.widget.Toolbar
 import com.asksira.webviewsuite.WebViewSuite
-
 import com.wardabbass.redit.R
 import com.wardabbass.redit.common.BaseFragment
 import com.wardabbass.redit.common.ui.RedditSwipeRefreshLayout
@@ -29,7 +20,6 @@ import com.wardabbass.redit.ui.delegate.RedditPostBookMarkDelegate
 
 
 class WebViewFragment : BaseFragment() {
-
 
     private lateinit var titleTextView: TextView
     private lateinit var bookmarkedToggleView: ToggleButton
@@ -40,7 +30,8 @@ class WebViewFragment : BaseFragment() {
     private var reditPost: ReditPost? = null
     private var bookMarked = false
     private var reditPostBookMarkDelegate: RedditPostBookMarkDelegate? = null
-    override fun onAttach(context: Context?) {
+
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         reditPostBookMarkDelegate = context as RedditPostBookMarkDelegate
     }
@@ -71,7 +62,7 @@ class WebViewFragment : BaseFragment() {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_web_view, container, false)
         initViews(root)
-        return root;
+        return root
     }
 
     private fun initViews(root: View) {
@@ -114,7 +105,7 @@ class WebViewFragment : BaseFragment() {
 
         })
         swipeRefreshLayout.canScrollChildDelegate = {
-            webViewSuite.webView?.scrollY?:0 > 0
+            webViewSuite.webView?.scrollY ?: 0 > 0
         }
         swipeRefreshLayout.setOnRefreshListener {
             webViewSuite.refresh()
@@ -138,15 +129,6 @@ class WebViewFragment : BaseFragment() {
             bookMarked = bookmarkedToggleView.isChecked
             reditPost?.let { post -> reditPostBookMarkDelegate?.onReditPostBokkmarked(post, bookMarked) }
         }
-    }
-
-    override fun onPause() {
-        super.onPause()
-
-    }
-
-    override fun onResume() {
-        super.onResume()
     }
 
 

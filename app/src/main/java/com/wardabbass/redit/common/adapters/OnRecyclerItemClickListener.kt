@@ -1,4 +1,4 @@
-package com.wardabbass.flickergallery.common.adapters
+package com.wardabbass.redit.common.adapters
 
 import android.view.View
 

@@ -1,9 +1,6 @@
-package com.wardabbass.flickergallery.common.adapters
+package com.wardabbass.redit.common.adapters
 
-import android.support.v7.widget.RecyclerView
-import android.view.ViewGroup
-import com.wardabbass.redit.models.ReditPost
-
+import androidx.recyclerview.widget.RecyclerView
 
 abstract class BaseAdapter<D, L : BaseRecyclerItemClickListener, VH : BaseViewHolder<D, L>> : RecyclerView.Adapter<VH>() {
 

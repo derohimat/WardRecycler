@@ -1,12 +1,12 @@
 package com.wardabbass.redit.ui.fragments
 
 
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProviders
 import com.ward.wrecycler.WardRecycler
 import com.wardabbass.redit.R
 import com.wardabbass.redit.models.ReditPost
@@ -32,7 +32,7 @@ class TopFeedFragment : FilteredFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        var rootView = inflater.inflate(R.layout.fragment_top_feed, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_top_feed, container, false)
         wardRecycler = rootView.findViewById(R.id.pullToLoadView)
         adapter = RedditPostsAdapter()
         wardRecycler.setAdapter(adapter)

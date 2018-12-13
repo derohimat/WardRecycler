@@ -1,15 +1,15 @@
 package com.wardabbass.redit
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
-import android.support.v4.view.ViewCompat
-import android.support.v7.widget.SearchView
-import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
+import androidx.appcompat.widget.Toolbar
+import androidx.core.view.ViewCompat
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.wardabbass.redit.models.ReditPost
 import com.wardabbass.redit.ui.delegate.RedditPostBookMarkDelegate
 import com.wardabbass.redit.ui.delegate.RedditPostClickDelegate
@@ -22,7 +22,6 @@ import com.wardabbass.redit.ui.viewpager.ReditFragmentAdapter
 import com.wardabbass.redit.viewmodels.MainActivityViewModel
 import org.jetbrains.anko.dip
 import org.jetbrains.anko.longToast
-import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity(), RedditPostClickDelegate, RedditPostBookMarkDelegate {
 
@@ -175,10 +174,10 @@ class MainActivity : AppCompatActivity(), RedditPostClickDelegate, RedditPostBoo
 
     }
 
-    override fun onSaveInstanceState(outState: Bundle?) {
+    override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState?.putString(EXTRA_QUERY, mainActivityViewModel.query.value)
-        outState?.putInt(EXTRA_SELECTED_SCREEN, mainActivityViewModel.selectedScreen)
+        outState.putString(EXTRA_QUERY, mainActivityViewModel.query.value)
+        outState.putInt(EXTRA_SELECTED_SCREEN, mainActivityViewModel.selectedScreen)
 
     }
 

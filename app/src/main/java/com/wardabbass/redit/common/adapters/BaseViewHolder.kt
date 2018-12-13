@@ -1,9 +1,9 @@
-package com.wardabbass.flickergallery.common.adapters
+package com.wardabbass.redit.common.adapters
 
-import android.support.v7.widget.RecyclerView
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 
-abstract class BaseViewHolder<D,L : BaseRecyclerItemClickListener>(view: View) : RecyclerView.ViewHolder(view) {
+abstract class BaseViewHolder<D, L : BaseRecyclerItemClickListener>(view: View) : RecyclerView.ViewHolder(view) {
 
-    abstract fun onBind(item:D, listener:L?)
+    abstract fun onBind(item: D, listener: L?)
 }

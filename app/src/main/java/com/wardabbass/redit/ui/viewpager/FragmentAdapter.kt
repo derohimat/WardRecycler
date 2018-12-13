@@ -1,17 +1,14 @@
 package com.wardabbass.redit.ui.viewpager
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentStatePagerAdapter
 import android.util.SparseArray
 import android.view.ViewGroup
-import com.wardabbass.redit.ui.fragments.FilteredFragment
+import androidx.fragment.app.Fragment
 
 /**
  * this will  make a cache for fragments, to avoid cases when the app got killed and the fragment state saved by the viewpager
  * template class type of fragments
  */
-class ReditFragmentAdapter<out F:Fragment>(fragmentManager: FragmentManager, private var fragments: Array<F> ) : FragmentStatePagerAdapter(fragmentManager) {
+class ReditFragmentAdapter<out F : Fragment>(fragmentManager: androidx.fragment.app.FragmentManager, private var fragments: Array<F>) : androidx.fragment.app.FragmentStatePagerAdapter(fragmentManager) {
 
     /**
      * using sparse array for mapping primitve -> fragment

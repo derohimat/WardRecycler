@@ -1,7 +1,7 @@
 package com.wardabbass.redit.viewmodels
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 
 /**
  * a View model that will carry the data and the state of the Main activity

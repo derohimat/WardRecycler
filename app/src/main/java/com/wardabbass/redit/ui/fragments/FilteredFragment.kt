@@ -3,7 +3,6 @@ package com.wardabbass.redit.ui.fragments
 import android.content.Context
 import android.os.Bundle
 import com.wardabbass.redit.common.BaseFragment
-import com.wardabbass.redit.common.filters.BasicFilter
 import com.wardabbass.redit.common.filters.RedditContainsFilter
 import com.wardabbass.redit.ui.delegate.RedditPostClickDelegate
 
@@ -11,7 +10,8 @@ abstract class FilteredFragment : BaseFragment() {
 
     protected var redditPostClickDelegate: RedditPostClickDelegate? = null
     protected lateinit var filter: RedditContainsFilter
-    override fun onAttach(context: Context?) {
+
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         redditPostClickDelegate = context as RedditPostClickDelegate
     }
@@ -34,7 +34,7 @@ abstract class FilteredFragment : BaseFragment() {
     var query = ""
         set(value) {
             field = value // set the value and call on change
-            filter.query=value
+            filter.query = value
             onQueryChanged()
         }
 

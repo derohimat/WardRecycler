@@ -1,33 +1,32 @@
 package com.wardabbass.redit.ui.viewpager
 
 import android.content.Context
-import android.support.v4.view.ViewPager
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 
-class NonSwipeCrossFadeViewPager @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) : ViewPager(context, attrs) {
+class NonSwipeCrossFadeViewPager @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) : androidx.viewpager.widget.ViewPager(context, attrs) {
     var swipeEnabled = false
     var enableTouch = true
 
 
     init {
-        setPageTransformer(false, { view, position ->
+        setPageTransformer(false) { view, position ->
             if (position <= -1.0F || position >= 1.0F) {        // [-Infinity,-1) OR (1,+Infinity]
-                view.setAlpha(0.0F);
-                view.setVisibility(View.GONE);
-            } else if( position == 0.0F ) {     // [0]
-                view.setAlpha(1.0F);
-                view.setVisibility(View.VISIBLE);
+                view.alpha = 0.0F
+                view.visibility = View.GONE
+            } else if (position == 0.0F) {     // [0]
+                view.alpha = 1.0F
+                view.visibility = View.VISIBLE
             } else {
 
                 // Position is between [-1,1]
-                view.setAlpha(1.0F - Math.abs(position));
-              //  view.setTranslationX(-position * (view.getWidth() / 2));
-                view.setVisibility(View.VISIBLE);
+                view.alpha = 1.0F - Math.abs(position)
+                //  view.setTranslationX(-position * (view.getWidth() / 2));
+                view.visibility = View.VISIBLE
             }
 
-        })
+        }
     }
 
     override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {

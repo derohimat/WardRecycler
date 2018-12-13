@@ -1,9 +1,7 @@
 package com.wardabbass.redit.viewmodels
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import com.wardabbass.redit.datalayer.ApiSource
-import com.wardabbass.redit.models.RedditResponse
 import com.wardabbass.redit.models.ReditPost
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable

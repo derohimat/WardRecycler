@@ -9,14 +9,14 @@ import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 
 object ApiSource {
-    const val TAG="ApiSource"
+    const val TAG = "ApiSource"
     const val PAGE_SIZE = DEFAULT_PAGE_SIZE
 
     private const val ROUTE_TEMPLATE = "https://www.reddit.com/top.json?limit={limit}&after={after}"
 
-    fun getTopFeed(limit: Int = PAGE_SIZE, after: String?=null): Single<RedditResponse> {
+    fun getTopFeed(limit: Int = PAGE_SIZE, after: String? = null): Single<RedditResponse> {
         AndroidNetworking.forceCancelAll() // force cancel all requests
-        Log.d(TAG,"limit $limit , after $after")
+        Log.d(TAG, "limit $limit , after $after")
         return Rx2AndroidNetworking
                 .get(ROUTE_TEMPLATE)
                 .addPathParameter("after", after)

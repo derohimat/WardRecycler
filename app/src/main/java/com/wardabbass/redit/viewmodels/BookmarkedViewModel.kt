@@ -1,6 +1,6 @@
 package com.wardabbass.redit.viewmodels
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import com.wardabbass.redit.models.ReditPost
 
 class BookmarkedViewModel : ViewModel() {
@@ -14,7 +14,8 @@ class BookmarkedViewModel : ViewModel() {
     fun bookMark(id: String) {
         bookMarkedIds.add(id)
     }
-    fun unBookmark(id:String){
+
+    fun unBookmark(id: String) {
         bookMarkedIds.remove(id)
     }
 
