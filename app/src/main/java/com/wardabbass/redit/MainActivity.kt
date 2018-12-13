@@ -204,7 +204,7 @@ class MainActivity : AppCompatActivity(), RedditPostClickDelegate, RedditPostBoo
                         R.anim.push_right_in,
                         R.anim.push_right_out
                 )
-                .add(R.id.fragmentContainer, webFragment, WebViewFragment.TAG)
+                .add(R.id.fragmentContainer, webFragment as WebViewFragment, WebViewFragment.TAG)
                 .addToBackStack(null)
                 .commit()
     }

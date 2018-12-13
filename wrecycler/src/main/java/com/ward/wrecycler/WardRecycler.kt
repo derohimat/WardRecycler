@@ -68,11 +68,8 @@ open class WardRecycler @JvmOverloads constructor(context: Context, attributeSet
         protected set
 
     private val pagingScrollListener = object : RecyclerView.OnScrollListener() {
-        override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
-            super.onScrollStateChanged(recyclerView, newState)
-        }
 
-        override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             super.onScrolled(recyclerView, dx, dy)
 
             val visibleItems = layoutManager.childCount
@@ -117,18 +114,18 @@ open class WardRecycler @JvmOverloads constructor(context: Context, attributeSet
         recyclerView.layoutManager = layoutManager
         recyclerView.addItemDecoration(object : RecyclerView.ItemDecoration() {
 
-            override fun getItemOffsets(outRect: Rect?, view: View?, parent: RecyclerView?, state: RecyclerView.State?) {
-                val pos = parent?.getChildAdapterPosition(view)
+            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+                val pos = parent.getChildAdapterPosition(view)
 
-                outRect?.left = itemSpacing
-                outRect?.right = itemSpacing
+                outRect.left = itemSpacing
+                outRect.right = itemSpacing
                 if (progressView.visibility == View.VISIBLE
                         && pos != RecyclerView.NO_POSITION
                         && recyclerView.adapter != null
-                        && pos == recyclerView.adapter.itemCount - 1) {
-                    outRect?.bottom = progressBarSize + dip(4)
+                        && pos == recyclerView.adapter?.itemCount?.minus(1) ?: 0) {
+                    outRect.bottom = progressBarSize + dip(4)
                 } else {
-                    outRect?.bottom = itemSpacing
+                    outRect.bottom = itemSpacing
 
                 }
             }
