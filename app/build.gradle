@@ -9,11 +9,10 @@ android {
     defaultConfig {
         multiDexEnabled true
         applicationId "com.wardabbass.redit"
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
@@ -41,21 +40,7 @@ dependencies {
     implementation 'com.asksira.android:webviewsuite:1.0.2'
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:rules:1.1.1'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'androidx.cardview:cardview:1.0.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-idling-resource:3.1.1'
-    testImplementation 'org.mockito:mockito-core:2.8.9'
-    testImplementation 'org.robolectric:robolectric:3.8'
-    testImplementation 'org.fluttercode.datafactory:datafactory:0.8'
-    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.1.1', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-        exclude group: 'com.android.support', module: 'support-v4'
-        exclude group: 'com.android.support', module: 'design'
-        exclude group: 'com.android.support', module: 'recyclerview-v7'
-    }
+
     implementation project(':wrecycler')
 }
