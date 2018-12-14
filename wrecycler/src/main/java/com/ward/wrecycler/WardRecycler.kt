@@ -121,7 +121,7 @@ open class WardRecycler @JvmOverloads constructor(context: Context, attributeSet
                 if (progressView.visibility == View.VISIBLE
                         && pos != RecyclerView.NO_POSITION
                         && recyclerView.adapter != null
-                        && pos == recyclerView.adapter?.itemCount?.minus(1) ?: 0) {
+                        && pos == recyclerView.adapter!!.itemCount - 1) {
                     outRect.bottom = progressBarSize + dip(4)
                 } else {
                     outRect.bottom = itemSpacing
