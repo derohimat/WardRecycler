@@ -10,7 +10,7 @@ import com.ward.wrecycler.WardRecycler
 import com.wardabbass.redit.R
 import com.wardabbass.redit.models.ReditPost
 import com.wardabbass.redit.ui.adapter.RedditPostsAdapter
-import com.wardabbass.redit.ui.adapter.ReditPostClickListener
+import com.wardabbass.redit.ui.adapter.RedditPostClickListener
 import com.wardabbass.redit.viewmodels.BookmarkedViewModel
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -46,7 +46,7 @@ class BookmarkedFragment : FilteredFragment() {
     private fun initAdapter() {
         adapter = RedditPostsAdapter()
         adapter.items = bookmarkedViewModel.bookMarkedRedditPosts
-        adapter.clickListener = object : ReditPostClickListener {
+        adapter.clickListener = object : RedditPostClickListener {
             override fun onItemClicked(item: ReditPost, position: Int, view: View) {
                 redditPostClickDelegate?.onRedditPostClicked(item)
             }

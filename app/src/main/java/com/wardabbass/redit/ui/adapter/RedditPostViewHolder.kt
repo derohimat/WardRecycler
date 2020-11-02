@@ -13,12 +13,12 @@ import com.wardabbass.redit.common.adapters.BaseViewHolder
 import com.wardabbass.redit.models.DEFAULT_THUMB
 import com.wardabbass.redit.models.ReditPost
 
-class RedditPostViewHolder(view: View) : BaseViewHolder<ReditPost, ReditPostClickListener>(view) {
+class RedditPostViewHolder(view: View) : BaseViewHolder<ReditPost, RedditPostClickListener>(view) {
 
 
     val imageView: ImageView = itemView.findViewById(R.id.imageView)
     val titleTextView: TextView = itemView.findViewById(R.id.titleView)
-    override fun onBind(item: ReditPost, listener: ReditPostClickListener?) {
+    override fun onBind(item: ReditPost, listener: RedditPostClickListener?) {
         val haveThumbnail = !TextUtils.isEmpty(item.thumbnail) || !DEFAULT_THUMB.equals(item.thumbnail,true)
 
         imageView.visibility=if(haveThumbnail) View.VISIBLE else View.GONE
